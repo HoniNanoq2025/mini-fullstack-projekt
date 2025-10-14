@@ -82,6 +82,18 @@ app.put("/recipes/:id", async (req, res) => {
   }
 });
 
+app.patch("/recipes/:id", async (req, res) => {
+  const updated = await Recipe.findByIdAndUpdate(
+    req.params.id,
+    { $set: req.body }, // $set only sent fields are updated
+    { new: true, runValidators: true } // runValidators checks that data is following your Schema (e.g. that servings is a number) - Good protection against invalid data
+    // No "new: true" database is updated correctly, but API returns old(obsolete) data to the user
+    // With "new: true" user gets correct, updated data instantly!
+  );
+  if (!updated) return res.status(404).json({ message: "Recipe not found" });
+  res.json(updated);
+});
+
 // DELETE
 app.delete("/recipes/:id", async (req, res) => {
   try {

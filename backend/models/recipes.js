@@ -18,17 +18,17 @@ const myRecipeSchema = new mongoose.Schema({
     required: [true, "Number of servings is required"],
     min: [1, "Recipes must pride at least one serving"],
   },
-  prepTime: {
+  prepTimeMinutes: {
     type: Number,
     required: [true, "Preparation time in minutes is required"],
     min: [1, "Recipes must have prep time of at least 1 minute"],
   },
-  cookTime: {
+  cookTimeMinutes: {
     type: Number,
     required: [true, "Cooking time in minutes is required"],
     default: "None",
   },
-  totalTime: {
+  totalTimeMinutes: {
     type: Number,
     required: [
       true,
@@ -47,5 +47,17 @@ const myRecipeSchema = new mongoose.Schema({
     type: String,
     required: [true, "Directions are required"],
     minLength: [10, "Directions must contain at least 10 characters"],
+  },
+  mealType: {
+    type: [String],
+    validate: {
+      validator: (arr) => arr.length > 0,
+      message: "You must at least one meal type (e.g. Lunch, Snack, Dinner)",
+    },
+  },
+  cuisine: {
+    type: String,
+    required: [true, "You need to indicate the type pf cuisine (e.g. Italian)"],
+    minLength: [4, "cuisine must contain at least 4 characters"],
   },
 });
