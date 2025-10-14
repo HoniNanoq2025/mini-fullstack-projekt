@@ -64,7 +64,7 @@ app.get("/recipes/search/:title", async (req, res) => {
 
 app.get("/recipes/:id", async (req, res) => {
   const recipe = await Recipe.findById(req.params.id);
-  if (!recipe) return res.json(404).json({ message: "Recipe not found" });
+  if (!recipe) return res.status(404).json({ message: "Recipe not found" });
   res.json(recipe);
 });
 
@@ -77,6 +77,7 @@ app.put("/recipes/:id", async (req, res) => {
     });
 
     if (!updated) return res.status(404).json({ error: "Recipe not found" });
+    res.json(updated);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -100,6 +101,7 @@ app.delete("/recipes/:id", async (req, res) => {
     const deleted = await Recipe.findByIdAndDelete(req.params.id);
 
     if (!deleted) return res.status(404).json({ error: "Recipe not found" });
+    res.json({ message: "Recipe deleted successfully" });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }

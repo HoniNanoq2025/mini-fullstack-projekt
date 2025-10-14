@@ -17,7 +17,7 @@ const myRecipeSchema = new mongoose.Schema(
     servings: {
       type: Number,
       required: [true, "Number of servings is required"],
-      min: [1, "Recipes must pride at least one serving"],
+      min: [1, "Recipes must provide at least one serving"],
     },
     prepTimeMinutes: {
       type: Number,
@@ -62,7 +62,7 @@ const myRecipeSchema = new mongoose.Schema(
       type: String,
       required: [
         true,
-        "You need to indicate the type pf cuisine (e.g. Italian)",
+        "You need to indicate the type of cuisine (e.g. Italian)",
       ],
       minLength: [4, "cuisine must contain at least 4 characters"],
     },
@@ -78,3 +78,5 @@ const myRecipeSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+module.exports = mongoose.model("Recipe", myRecipeSchema);
