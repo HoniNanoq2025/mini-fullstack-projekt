@@ -21,8 +21,8 @@ mongoose
 // CREATE
 app.post("/recipes", async (req, res) => {
   try {
-    const recipe = new Recipe(req.body);
-    const saved = await recipe.save();
+    const newRecipe = new Recipe(req.body);
+    const saved = await newRecipe.save();
     res.status(201).json(saved);
   } catch (err) {
     res.status(400).json({ error: err.message });
