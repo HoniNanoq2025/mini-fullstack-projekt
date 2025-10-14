@@ -13,6 +13,11 @@ const myRecipeSchema = new mongoose.Schema({
     required: [true, "Description in required"],
     minLength: [20, "Description must contain at least 20 characters"],
   },
+  servings: {
+    type: Number,
+    required: [true, "Number of servings is required"],
+    min: [1, "Recipes must pride at least one serving"],
+  },
   prepTime: {
     type: Number,
     required: [true, "Preparation time in minutes is required"],
