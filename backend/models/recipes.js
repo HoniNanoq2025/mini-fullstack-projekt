@@ -62,4 +62,9 @@ const myRecipeSchema = new mongoose.Schema({
     required: [true, "You need to indicate the type pf cuisine (e.g. Italian)"],
     minLength: [4, "cuisine must contain at least 4 characters"],
   },
+  difficulty: {
+    type: String,
+    required: [true, "You need to indicate the difficulty (e.g. Medium)"],
+    minLength: [4, "Difficulty must contain at least 4 characters"],
+  },
 });
