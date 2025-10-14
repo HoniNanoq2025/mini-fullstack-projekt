@@ -43,10 +43,12 @@ const myRecipeSchema = new mongoose.Schema({
       message: "You must add at least one ingredient",
     },
   },
-  directions: {
-    type: String,
-    required: [true, "Directions are required"],
-    minLength: [10, "Directions must contain at least 10 characters"],
+  instructions: {
+    type: [String],
+    validate: {
+      validator: (arr) => arr.length > 0,
+      message: "You must add at least one instruction",
+    },
   },
   mealType: {
     type: [String],
