@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // ✅ import toastify css styles
 import styles from "./FormPage.module.css";
 
 export default function FormPage() {
@@ -16,14 +18,11 @@ export default function FormPage() {
   const [image, setImage] = useState("");
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-  /*   const [error, setError] = useState(null); */
 
   // Function for handling form submission
   const handleSubmit = async (e) => {
     e.preventDefault(); // prevents standard form behavior(reload)
     setLoading(true); // Loading is set to true
-    setMessage(""); // Reset message
 
     const newRecipe = {
       title,
@@ -67,7 +66,12 @@ export default function FormPage() {
       }
 
       const data = await res.json();
-      setMessage(`The recipe ${data.title} has been added`);
+
+      // ✅ success toast
+      toast.success(`✅ The recipe "${data.title}" has been added!`, {
+        position: "top-right",
+        autoClose: 3000,
+      });
 
       // Reset form
       setTitle("");
@@ -83,7 +87,11 @@ export default function FormPage() {
       setDifficulty("");
       setImage("");
     } catch (err) {
-      setMessage(err.message);
+      // error toast
+      toast.error(`❌ ${err.message}`, {
+        position: "top-right",
+        autoClose: 4000,
+      });
     } finally {
       setLoading(false);
     }
@@ -222,7 +230,16 @@ export default function FormPage() {
           {loading ? "Saving..." : "Add recipe"}
         </button>
 
-        {message && <p className={styles.message}>{message}</p>}
+        {/* ✅ Toast container goes here once */}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+        />
       </form>
     </div>
   );

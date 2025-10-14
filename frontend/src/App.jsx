@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRoute as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
   NavLink,
