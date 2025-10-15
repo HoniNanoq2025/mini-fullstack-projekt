@@ -4,3 +4,9 @@
     justify-content: center;
     align-items: center;
 }
+
+h1 {
+    color: purple;
+    font-family: 'Cookie';
+    font-size: 80px;
+}

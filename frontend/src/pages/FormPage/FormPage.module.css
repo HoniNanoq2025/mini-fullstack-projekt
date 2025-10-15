@@ -96,6 +96,10 @@ button {
   text-transform: uppercase;
 }
 
+button:hover {
+  background-color: rgb(46, 125, 49);
+}
+
 button:disabled {
   background-color: #aaa;
   cursor: not-allowed;
