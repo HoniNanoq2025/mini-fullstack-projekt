@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
+.card {
+  width: 350px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: purple;
+  padding: 20px 10px;
+  border: none;
+  border-radius: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+.image {
+  height: 250px;
+  width: auto;
+  border-radius: 18px;
+}
+
+h3 {
+  font-family: "Cookie", "Poppins", sans-serif;
+  font-size: 2rem;
+}
+
+.info {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.infoOne {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.infoTwo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.description {
+  text-align: center;
+  width: 300px;
+  height: auto;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}

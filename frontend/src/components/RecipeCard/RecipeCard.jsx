@@ -25,7 +25,9 @@ export default function RecipeCard({ recipe }) {
           {recipe.cuisine && <p>Cuisine: {recipe.cuisine}</p>}
         </div>
       </div>
-      {recipe.description && <p>{recipe.description}</p>}
+      <div className={styles.description}>
+        {recipe.description && <p>{recipe.description}</p>}
+      </div>
 
       <button
         onClick={() => navigate(`/recipe/${recipe._id}`)}
