@@ -15,22 +15,21 @@ export default function Recipes() {
   const page = parseInt(searchParams.get("page") || "1", 10);
 
   const fetchRecipes = useCallback(async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(
-          `http://localhost:3000/recipes/search/${search}?page=${page}&limit=20`
-        );
+    try {
+      setLoading(true);
+      const res = await fetch(
+        `http://localhost:3000/recipes?page=${page}&limit=20&search=${search}`
+      );
 
-        const data = await res.json();
-        setRecipes(data.recipes || []);
-        setTotalPages(data.totalPages || 1);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    },
-    [search, page]);
+      const data = await res.json();
+      setRecipes(data.recipes || []);
+      setTotalPages(data.totalPages || 1);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  }, [search, page]);
 
   useEffect(() => {
     fetchRecipes();
