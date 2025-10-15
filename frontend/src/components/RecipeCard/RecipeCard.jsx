@@ -16,14 +16,10 @@ export default function RecipeCard({ recipe }) {
 
       <h3>{recipe.title}</h3>
       <div className={styles.info}>
-        <div className={styles.infoOne}>
-          {recipe.servings && <p>Servings: {recipe.servings}</p>}
-          {recipe.mealType && <p>Meal type: {recipe.mealType.join(", ")}</p>}
-        </div>
-        <div className={styles.infoTwo}>
-          {recipe.difficulty && <p>Difficulty: {recipe.difficulty}</p>}
-          {recipe.cuisine && <p>Cuisine: {recipe.cuisine}</p>}
-        </div>
+        {recipe.servings && <p>Servings: {recipe.servings}</p>}
+        {recipe.mealType && <p>Meal type: {recipe.mealType.join(", ")}</p>}
+        {recipe.difficulty && <p>Difficulty: {recipe.difficulty}</p>}
+        {recipe.cuisine && <p>Cuisine: {recipe.cuisine}</p>}
       </div>
       <div className={styles.description}>
         {recipe.description && <p>{recipe.description}</p>}
