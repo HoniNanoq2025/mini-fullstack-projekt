@@ -6,9 +6,9 @@ export default function RecipeList({ recipes }) {
 
   return (
     <div className={styles.grid}>
-      {recipes.map((recipe) => {
-        <RecipeCard key={recipe._id} recipe={recipe} />;
-      })}
+      {recipes.map((recipe) => (
+        <RecipeCard key={recipe._id} recipe={recipe} />
+      ))}
     </div>
   );
 }
