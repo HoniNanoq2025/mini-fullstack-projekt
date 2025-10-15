@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -9,7 +10,7 @@
 
 .button {
   padding: 8px 14px;
-  background: #007bff;
+  background: purple;
   color: #fff;
   border: none;
   border-radius: 12px;
@@ -20,7 +21,7 @@
 }
 
 .button:hover:not(disabled) {
-  background: #0062cb;
+  background: rgb(46, 125, 49);
   transform: translateY(-2px);
 }
 
@@ -31,7 +32,7 @@
 }
 
 .active {
-  background: #007bff;
+  background: purple;
   color: #fff;
   font-weight: 600;
   transform: scale(1.05);
