@@ -4,12 +4,15 @@
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #fafafa;
+  background-color: purple;
+  font-family: "Poppins", sans-serif;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 1rem;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
 }
 
 .form {
@@ -22,28 +25,73 @@ label {
   display: flex;
   flex-direction: column;
   font-weight: 500;
+  margin-bottom: 15px;
 }
 
 input {
+  background-color: white;
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid #ccc;
+  color: rgb(180, 69, 180);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
 }
 
 input::placeholder {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
+  color: rgba(180, 69, 180, 0.648);
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  height: 150px;
+  background-color: white;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(180, 69, 180);
+}
+
+textarea::placeholder {
+  color: rgba(180, 69, 180, 0.648);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+
+select {
+  padding: 0.5rem;
+  background-color: white;
+  color: rgba(180, 69, 180, 0.648);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 button {
   padding: 0.7rem;
   border: none;
   border-radius: 5px;
-  background-color: #1976d2;
+  background-color: #321d80;
   color: white;
   font-weight: bold;
   cursor: pointer;
   margin-top: 1rem;
+  text-transform: uppercase;
 }
 
 button:disabled {
