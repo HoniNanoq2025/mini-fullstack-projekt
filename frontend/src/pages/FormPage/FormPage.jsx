@@ -35,10 +35,10 @@ export default function FormPage() {
       totalTimeMinutes:
         totalTimeMinutes !== "" ? parseInt(totalTimeMinutes, 10) : undefined,
       ingredients: ingredients
-        ? ingredients.split(", ").map((ingredient) => ingredient.trim())
+        ? ingredients.split("\n").map((ingredient) => ingredient.trim())
         : [], // Split into array
       instructions: instructions
-        ? instructions.split(", ").map((i) => i.trim())
+        ? instructions.split("\n").map((i) => i.trim())
         : [], // Split into array
       mealType: mealType ? mealType.split(", ").map((m) => m.trim()) : [], // Split into array
       cuisine,
@@ -163,7 +163,7 @@ export default function FormPage() {
           />
         </label>
         <label>
-          Ingredients (comma separated)
+          Ingredients (line separated)
           <textarea
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
@@ -173,7 +173,7 @@ export default function FormPage() {
           />
         </label>
         <label>
-          Instructions (comma separated)
+          Instructions (line separated)
           <textarea
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
