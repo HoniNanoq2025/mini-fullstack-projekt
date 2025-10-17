@@ -27,16 +27,13 @@ export default function FormPage() {
     const newRecipe = {
       title,
       description,
-      servings: servings ? parseInt(servings, 10) : undefined,
-      prepTimeMinutes: prepTimeMinutes
-        ? parseInt(prepTimeMinutes, 10)
-        : undefined,
-      cookTimeMinutes: cookTimeMinutes
-        ? parseInt(cookTimeMinutes, 10)
-        : undefined,
-      totalTimeMinutes: totalTimeMinutes
-        ? parseInt(totalTimeMinutes, 10)
-        : undefined,
+      servings: servings !== "" ? parseInt(servings, 10) : undefined,
+      prepTimeMinutes:
+        prepTimeMinutes !== "" ? parseInt(prepTimeMinutes, 10) : undefined,
+      cookTimeMinutes:
+        cookTimeMinutes !== "" ? parseInt(cookTimeMinutes, 10) : undefined,
+      totalTimeMinutes:
+        totalTimeMinutes !== "" ? parseInt(totalTimeMinutes, 10) : undefined,
       ingredients: ingredients
         ? ingredients.split(", ").map((ingredient) => ingredient.trim())
         : [], // Split into array
@@ -45,7 +42,7 @@ export default function FormPage() {
         : [], // Split into array
       mealType: mealType ? mealType.split(", ").map((m) => m.trim()) : [], // Split into array
       cuisine,
-      difficulty,
+      difficulty: difficulty.trim(),
       image,
     };
 
@@ -211,7 +208,7 @@ export default function FormPage() {
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}
           >
-            {/*             <option value="Select difficulty"></option> */}
+            <option value="">Select difficulty</option>
             <option value="Easy">Easy</option>
             <option value="Medium">Medium</option>
             <option value="Hard">Hard</option>
