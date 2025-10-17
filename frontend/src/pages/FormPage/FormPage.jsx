@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css"; // ✅ import toastify css style
 import styles from "./FormPage.module.css";
 
 export default function FormPage() {
+  // States for the different inputs
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [servings, setServings] = useState("");
@@ -24,6 +25,7 @@ export default function FormPage() {
     e.preventDefault(); // prevents standard form behavior(reload)
     setLoading(true); // Loading is set to true
 
+    // add a new recipe with these inputs
     const newRecipe = {
       title,
       description,
