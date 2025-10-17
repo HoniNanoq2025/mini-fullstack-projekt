@@ -27,7 +27,7 @@ const myRecipeSchema = new mongoose.Schema(
     cookTimeMinutes: {
       type: Number,
       required: [true, "Cooking time in minutes is required"],
-      default: "None",
+      min: [0, "Write 0 if it doesn't require any cooking time"],
     },
     totalTimeMinutes: {
       type: Number,

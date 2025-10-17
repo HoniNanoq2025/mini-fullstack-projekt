@@ -26,7 +26,7 @@ export default function RecipeCard({ recipe }) {
       </div>
 
       <button
-        onClick={() => navigate(`/recipe/${recipe._id}`)}
+        onClick={() => navigate(`/recipes/${recipe._id}`)}
         className={styles.readMore}
       >
         Read More

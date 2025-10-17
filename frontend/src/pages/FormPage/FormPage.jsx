@@ -152,7 +152,7 @@ export default function FormPage() {
             onChange={(e) => setCookTimeMinutes(e.target.value)}
             required
             placeholder="Cooking time in minutes..."
-            min={1}
+            min={0}
           />
         </label>
         <label>
@@ -211,7 +211,7 @@ export default function FormPage() {
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}
           >
-{/*             <option value="Select difficulty"></option> */}
+            {/*             <option value="Select difficulty"></option> */}
             <option value="Easy">Easy</option>
             <option value="Medium">Medium</option>
             <option value="Hard">Hard</option>
