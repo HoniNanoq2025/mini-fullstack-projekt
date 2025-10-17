@@ -33,7 +33,7 @@ app.post("/recipes", async (req, res) => {
 app.get("/recipes", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 20;
+    const limit = parseInt(req.query.limit) || 8;
     const search = req.query.search || "";
     const query = search ? { title: { $regex: search, $options: "i" } } : {};
     const total = await Recipe.countDocuments(query);

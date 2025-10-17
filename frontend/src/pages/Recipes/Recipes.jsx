@@ -18,7 +18,7 @@ export default function Recipes() {
     try {
       setLoading(true);
       const res = await fetch(
-        `http://localhost:3000/recipes?page=${page}&limit=20&search=${search}`
+        `http://localhost:3000/recipes?page=${page}&limit=8&search=${search}`
       );
 
       const data = await res.json();
