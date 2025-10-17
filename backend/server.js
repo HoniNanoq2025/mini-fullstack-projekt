@@ -34,21 +34,6 @@ app.get("/recipes", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
-    const total = await Recipe.countDocuments();
-    const recipes = await Recipe.find()
-      .skip((page - 1) * limit)
-      .limit(limit);
-    const totalPages = Math.ceil(total / limit);
-    res.json({ recipes, totalPages, currentPage: page });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-app.get("/recipes/search/:title", async (req, res) => {
-  try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 20;
     const search = req.query.search || "";
     const query = search ? { title: { $regex: search, $options: "i" } } : {};
     const total = await Recipe.countDocuments(query);
